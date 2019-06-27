@@ -7,16 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Causality and Experiments</title>
-  <meta name="description" content="Causality and Experiments">
+  <title>Citations and bibliographies</title>
+  <meta name="description" content="Including citations in your book">
 
-  <link rel="canonical" href="http://0.0.0.0:4000/python-book/02/causality-and-experiments.html">
+  <link rel="canonical" href="http://0.0.0.0:4000/python-book/features/citations.html">
   <link rel="alternate" type="application/rss+xml" title="Python for Data Science" href="http://0.0.0.0:4000/python-book/feed.xml">
 
-  <meta property="og:url"         content="http://0.0.0.0:4000/python-book/02/causality-and-experiments.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/python-book/features/citations.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Causality and Experiments" />
-<meta property="og:description" content="Causality and Experiments" />
+<meta property="og:title"       content="Citations and bibliographies" />
+<meta property="og:description" content="Including citations in your book" />
 <meta property="og:image"       content="" />
 
 
@@ -25,15 +25,15 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "http://0.0.0.0:4000/python-book/02/causality-and-experiments.html",
+    "http://0.0.0.0:4000/python-book/features/citations.html",
   "headline":
-    "Causality and Experiments",
+    "Citations and bibliographies",
   "datePublished":
     "2019-06-27T10:55:06-05:00",
   "dateModified":
     "2019-06-27T10:55:06-05:00",
   "description":
-    "Causality and Experiments",
+    "Including citations in your book",
   "author": {
     "@type": "Person",
     "name": "Levine Huang"
@@ -942,7 +942,7 @@ initFunction(initQuery);
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/python-book/features/citations.html"
                 >
                   
@@ -1153,7 +1153,7 @@ initFunction(initQuery);
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/python-book/02/causality-and-experiments.html"
         >
           
@@ -1171,7 +1171,7 @@ initFunction(initQuery);
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
@@ -1505,61 +1505,94 @@ initFunction(initQuery);
 </div>
 
             
+<div class="buttons">
+<a href="/python-book/content/features/citations.ipynb" download>
+<button id="interact-button-download" class="interact-button">Download</button>
+</a>
+
+<button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+
+
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/jupyter/jupyter-book/gh-pages?filepath=content%2Ffeatures%2Fcitations.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/python-book/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+
+
+</div>
+
 
             <div class="c-textbook__content">
-              <h1 id="causality-and-experiments">Causality and Experiments</h1>
+              <h1 id="including-citations-in-your-book">Including citations in your book</h1>
 
-<p><em>“These problems are, and will probably ever remain, among the inscrutable
-secrets of nature. They belong to a class of questions radically inaccessible to
-the human intelligence.”</em> —The Times of London, September 1849, on how cholera
-is contracted and spread</p>
+<p>Because <code class="highlighter-rouge">jupyter-book</code> is built on top of Jekyll, we can use the excellent
+<a href="https://github.com/inukshuk/jekyll-scholar">jekyll-scholar</a> book to
+include citations and a bibliography with your book.</p>
 
-<p>Does the death penalty have a deterrent effect? Is chocolate good for you? What
-causes breast cancer?</p>
+<p><strong>Note that this only works if you’re building your book HTML locally and
+hosting the HTML files online somewhere</strong>. This can still use GitHub pages, but
+not the auto-generation of a cite from markdown files feature of GitHub pages.
+This is because GitHub pages doesn’t include the <code class="highlighter-rouge">jekyll-scholar</code> plugin.</p>
 
-<p>All of these questions attempt to assign a cause to an effect. A careful
-examination of data can help shed light on questions like these. In this section
-you will learn some of the fundamental concepts involved in establishing
-causality.</p>
+<h2 id="how-to-use-citations">How to use citations</h2>
 
-<p>Observation is a key to good science. An <em>observational study</em> is one in which
-scientists make conclusions based on data that they have observed but had no
-hand in generating. In data science, many such studies involve observations on a
-group of individuals, a factor of interest called a <em>treatment</em>, and an
-<em>outcome</em> measured on each individual.</p>
+<p>Including citations with your markdown files or notebooks is done in the following
+way.</p>
 
-<p>It is easiest to think of the individuals as people. In a study of whether
-chocolate is good for the health, the individuals would indeed be people, the
-treatment would be eating chocolate, and the outcome might be a measure of blood
-pressure. But individuals in observational studies need not be people. In a
-study of whether the death penalty has a deterrent effect, the individuals could
-be the 50 states of the union. A state law allowing the death penalty would be
-the treatment, and an outcome could be the state’s murder rate.</p>
+<ol>
+  <li>Modify the file in <code class="highlighter-rouge">_bibliography/references.bib</code>. This has a few sample citations
+in bibtex form. Update as you wish!</li>
+  <li>
+    <p>In your content, add the following text to include a citation</p>
 
-<p>The fundamental question is whether the treatment has an effect on the outcome.
-Any relation between the treatment and the outcome is called an <em>association</em>.
-If the treatment causes the outcome to occur, then the association is <em>causal</em>.
-<em>Causality</em> is at the heart of all three questions posed at the start of this
-section. For example, one of the questions was whether chocolate directly causes
-improvements in health, not just whether there there is a relation between
-chocolate and health.</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% cite bibtex_shortname %}
+</code></pre></div>    </div>
 
-<p>The establishment of causality often takes place in two stages. First, an
-association is observed. Next, a more careful analysis leads to a decision about
-causality.</p>
+    <p>For example, this text: <code class="highlighter-rouge">{% cite holdgraf_evidence_2014 %}</code> generates this citation: <a href="#holdgraf_evidence_2014">(Holdgraf, de Heer, Pasley, &amp; Knight, 2014)</a></p>
+
+    <p>You can also include multiple citations in one go, like so:</p>
+
+    <p><code class="highlighter-rouge">{% cite holdgraf_evidence_2014 holdgraf_portable_2017 ruby %}</code> becomes <a href="#holdgraf_evidence_2014">(Holdgraf, de Heer, Pasley, &amp; Knight, 2014; Holdgraf et al., 2017; Flanagan &amp; Matsumoto, 2008)</a></p>
+  </li>
+  <li>
+    <p>Generate a bibliography on your page by using the following text:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% bibliography %}
+</code></pre></div>    </div>
+
+    <p>This will generate a bibliography for your entire bibtex file. If you’d like to restrict teh
+bibliography to only the citations you’ve used on a page, use the following syntax:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% bibliography --cited %}
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>When your book is built, the bibliography and citations will now be included. For example,
+see the Bibliography generated below!</p>
+
+<h2 id="references">References</h2>
+
+<ol class="bibliography"><li><span id="holdgraf_evidence_2014">Holdgraf, C. R., de Heer, W., Pasley, B. N., &amp; Knight, R. T. (2014). Evidence for Predictive Coding in Human Auditory Cortex. In <i>International Conference on Cognitive Neuroscience</i>. Brisbane, Australia, Australia: Frontiers in Neuroscience.</span></li>
+<li><span id="holdgraf_portable_2017">Holdgraf, C. R., Culich, A., Rokem, A., Deniz, F., Alegro, M., &amp; Ushizima, D. (2017). Portable learning environments for hands-on computational instruction using container-and cloud-based technology to teach data science. In <i>ACM International Conference Proceeding Series</i> (Vol. Part F1287). https://doi.org/10.1145/3093338.3093370</span></li>
+<li><span id="ruby">Flanagan, D., &amp; Matsumoto, Y. (2008). <i>The Ruby Programming Language</i>. O’Reilly Media.</span></li></ol>
 
               <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/python-book/01/3/subsection/subsectiontwo">
-      〈 <span class="u-margin-right-tiny"></span> Subsection Demo 2
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/python-book/features/interactive_cells">
+      〈 <span class="u-margin-right-tiny"></span> Adding interactivity to your book ...
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/python-book/02/1/observation-and-visualization-john-snow-and-the-broad-street-pump">
-      John Snow and the Broad Street Pump <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/python-book/features/search">
+      Searching your book <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
