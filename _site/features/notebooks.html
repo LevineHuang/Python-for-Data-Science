@@ -10,10 +10,10 @@
   <title>Jupyter notebooks</title>
   <meta name="description" content="Content with notebooks">
 
-  <link rel="canonical" href="https://jupyter.org/jupyter-book/features/notebooks.html">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
+  <link rel="canonical" href="http://0.0.0.0:4000/jupyter-book/features/notebooks.html">
+  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="http://0.0.0.0:4000/jupyter-book/feed.xml">
 
-  <meta property="og:url"         content="https://jupyter.org/jupyter-book/features/notebooks.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/jupyter-book/features/notebooks.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Jupyter notebooks" />
 <meta property="og:description" content="Content with notebooks" />
@@ -25,13 +25,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://jupyter.org/jupyter-book/features/notebooks.html",
+    "http://0.0.0.0:4000/jupyter-book/features/notebooks.html",
   "headline":
     "Jupyter notebooks",
   "datePublished":
-    "2019-05-02T15:02:41-07:00",
+    "2019-06-27T10:06:40-05:00",
   "dateModified":
-    "2019-05-02T15:02:41-07:00",
+    "2019-06-27T10:06:40-05:00",
   "description":
     "Content with notebooks",
   "author": {
@@ -43,14 +43,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://jupyter.org/jupyter-book",
+      "url": "http://0.0.0.0:4000/jupyter-book",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://jupyter.org/jupyter-book",
+    "url": "http://0.0.0.0:4000/jupyter-book",
     "height": 60,
     "width": 60
   }
@@ -517,7 +517,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("https://jupyter.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("http://0.0.0.0:4000") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {

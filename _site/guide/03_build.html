@@ -10,10 +10,10 @@
   <title>Build and publish your book</title>
   <meta name="description" content="Building and publishing your book">
 
-  <link rel="canonical" href="https://jupyter.org/jupyter-book/guide/03_build.html">
-  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="https://jupyter.org/jupyter-book/feed.xml">
+  <link rel="canonical" href="http://0.0.0.0:4000/jupyter-book/guide/03_build.html">
+  <link rel="alternate" type="application/rss+xml" title="Jupyter Book" href="http://0.0.0.0:4000/jupyter-book/feed.xml">
 
-  <meta property="og:url"         content="https://jupyter.org/jupyter-book/guide/03_build.html" />
+  <meta property="og:url"         content="http://0.0.0.0:4000/jupyter-book/guide/03_build.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Build and publish your book" />
 <meta property="og:description" content="Building and publishing your book" />
@@ -25,13 +25,13 @@
   "@context": "http://schema.org",
   "@type": "NewsArticle",
   "mainEntityOfPage":
-    "https://jupyter.org/jupyter-book/guide/03_build.html",
+    "http://0.0.0.0:4000/jupyter-book/guide/03_build.html",
   "headline":
     "Build and publish your book",
   "datePublished":
-    "2019-05-02T15:02:41-07:00",
+    "2019-06-27T10:06:40-05:00",
   "dateModified":
-    "2019-05-02T15:02:41-07:00",
+    "2019-06-27T10:06:40-05:00",
   "description":
     "Building and publishing your book",
   "author": {
@@ -43,14 +43,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://jupyter.org/jupyter-book",
+      "url": "http://0.0.0.0:4000/jupyter-book",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://jupyter.org/jupyter-book",
+    "url": "http://0.0.0.0:4000/jupyter-book",
     "height": 60,
     "width": 60
   }
@@ -517,7 +517,7 @@ function addParamToInternalLinks(hub) {
   var links = document.querySelectorAll("a").forEach(function(link) {
     var href = link.href;
     // If the link is an internal link...
-    if (href.search("https://jupyter.org") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+    if (href.search("http://0.0.0.0:4000") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
       // Assume we're an internal link, add the hub param to it
       var params = getJsonFromUrl(href);
       if (params !== false) {
@@ -1644,7 +1644,32 @@ the *<code class="highlighter-rouge">conda</code></em> package manager:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install <span class="nt">-c</span> conda-forge ruby
 </code></pre></div></div>
-<p>Once you have Ruby installed, run</p>
+
+<p>Once you have Ruby installed, the conda-built clang compiler for your system need to be installed. Details depend on your OS.</p>
+
+<h4 id="on-osx">On OSX</h4>
+
+<p>Two steps are needed on OSX. First, install the <em><code class="highlighter-rouge">conda</code>’s</em> clang compiler:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda install <span class="nt">-c</span> conda-forge clangxx_osx-64
+</code></pre></div></div>
+
+<p>If you are running OSX 10.14 (Mojave) you also need to install system libraries in
+the default *nix locations by running</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+</code></pre></div></div>
+
+<h4 id="on-linux">On Linux</h4>
+
+<p>Install <em><code class="highlighter-rouge">conda</code>’s</em> clang compiler:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gxx_linux-64
+</code></pre></div></div>
+
+<h4 id="install-ruby-plugins">Install Ruby plugins</h4>
+
+<p>Finally, run</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make install
 </code></pre></div></div>
